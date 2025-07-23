@@ -4,8 +4,14 @@
   <meta charset="UTF-8" />
   <title>Registro Wi-Fi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="estilos.css" />
+<link rel="stylesheet" href="popup.css" />
+  <link rel="icon" href="logo.png" />
+
+
 </head>
 <body>
+  <img src="logo.png" alt="CLAHE Eventos" class="logo-img" />
 
   <h3>Por favor, completá tus datos para conectarte.</h3>
 
@@ -40,12 +46,55 @@
   <!-- Modal -->
   <div id="terminosModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5);">
     <div style="background:#fff; margin: 10% auto; padding:20px; width:90%; max-width:600px; position:relative;">
-      <h2>Términos y Condiciones de Uso del WiFi</h2>
-      <div style="max-height:300px; overflow-y:auto;">
-        <p><strong>Última actualización:</strong> Julio de 2025</p>
-        <p>Por favor, lea atentamente los siguientes Términos y Condiciones antes de utilizar este servicio.</p>
-        <!-- Podés agregar más texto aquí -->
-      </div>
+      <div class="modal-header">
+            <h2>Términos y Condiciones de Uso del wifi</h2> 
+            <span class="close" onclick="closeModal()">&times;</span>
+        </div>
+
+        <!-- CUERPO CON SCROLL -->
+   <div class="modal-body terminos-body">
+    <p><strong>Última actualización:</strong> Julio de 2025</p>
+    <p>Por favor, lea atentamente los siguientes Términos y Condiciones antes de utilizar este sitio web. Al acceder o utilizar nuestro sitio, usted acepta quedar legalmente obligado por estos términos.</p>
+
+    <h3>1. Identificación del titular</h3>
+    <p>CLAHE EVENTOS SRL es una empresa dedicada a la prestación de servicios para la organización de eventos sociales y familiares, como cumpleaños, casamientos, bautismos, aniversarios, entre otros. Nuestros salones se encuentran ubicados en la zona sur de la Provincia de Buenos Aires.</p>
+    <p><strong>Razón social:</strong> CLAHE EVENTOS<br>
+    <strong>Domicilio legal:</strong> Avenida Mitre N° 6549, Wilde<br>
+    <strong>Correo electrónico de contacto:</strong> Legales@claheeventos.com</p>
+
+    <h3>2. Objeto del sitio web</h3>
+    <p>El presente sitio web tiene como finalidad informar a los usuarios sobre los servicios que ofrece CLAHE EVENTOS, permitir la toma de contacto, enviar consultas, dejar datos de contacto, y brindar información adicional vinculada a la contratación de nuestros salones y servicios asociados.</p>
+
+    <h3>3. Aceptación de los Términos</h3>
+    <p>El uso del sitio por parte del usuario implica la aceptación plena y sin reservas de los presentes Términos y Condiciones. En caso de no estar de acuerdo, le solicitamos que se abstenga de utilizar el sitio.</p>
+
+    <h3>4. Servicios ofrecidos</h3>
+    <p>CLAHE EVENTOS ofrece la contratación de salones para eventos sociales, con o sin servicios adicionales (catering, decoración, animación, etc.). Las características de cada salón y servicio adicional están detalladas en el sitio y/o se comunican al momento de la contratación.</p>
+
+    <h3>5. Reservas y contrataciones</h3>
+    <p>Las reservas de fechas se encuentran sujetas a disponibilidad y deben ser confirmadas por parte del equipo de CLAHE EVENTOS. Para garantizar una fecha, podrá exigirse el pago de una seña o anticipo, cuyas condiciones serán informadas oportunamente. El saldo deberá abonarse según los plazos acordados al momento de la contratación. CLAHE EVENTOS se reserva el derecho de cancelar reservas no confirmadas o no abonadas en tiempo y forma.</p>
+
+    <h3>6. Cancelaciones y devoluciones</h3>
+    <p>Las políticas de cancelación serán informadas al momento de la reserva y podrán variar según el tipo de evento y los servicios contratados.</p>
+
+    <h3>7. Uso del sitio web</h3>
+    <p>El usuario se compromete a utilizar el sitio de manera lícita y responsable. Queda prohibido: realizar reservas falsas o fraudulentas, proporcionar información falsa o incompleta, interferir con el funcionamiento del sitio o intentar acceder a áreas restringidas.</p>
+
+    <h3>8. Propiedad intelectual</h3>
+    <p>Todo el contenido del sitio (textos, imágenes, logos, diseños, videos, software, etc.) es propiedad de CLAHE EVENTOS SRL o cuenta con licencia para su uso. Queda prohibida su reproducción total o parcial sin autorización expresa.</p>
+
+    <h3>9. Limitación de responsabilidad</h3>
+    <p>CLAHE EVENTOS no garantiza la disponibilidad continua del sitio ni se responsabiliza por posibles interrupciones, errores o daños derivados del uso del mismo. Tampoco será responsable por decisiones tomadas por el usuario basadas en la información publicada.</p>
+
+    <h3>10. Modificaciones</h3>
+    <p>Nos reservamos el derecho de modificar los presentes Términos y Condiciones en cualquier momento. Las modificaciones entrarán en vigencia desde su publicación en el sitio. Se recomienda revisar periódicamente esta sección.</p>
+
+    <h3>11. Protección de datos personales</h3>
+    <p>CLAHE EVENTOS se compromete a proteger los datos personales que los usuarios proporcionen, de acuerdo con la Ley 25.326 de Protección de Datos Personales.</p>
+
+    <h3>12. Legislación aplicable y jurisdicción</h3>
+    <p>Los presentes Términos y Condiciones se rigen por las leyes de la República Argentina. Para cualquier controversia derivada del uso del sitio o los servicios ofrecidos, las partes se someten a la jurisdicción de los tribunales ordinarios con asiento en el Departamento Judicial de la Provincia de Buenos Aires.</p>
+</div>
       <button onclick="aceptarTerminos()">Aceptar</button>
       <button onclick="closeModal()">Cancelar</button>
       <button style="position:absolute; top:10px; right:10px;" onclick="closeModal()">X</button>

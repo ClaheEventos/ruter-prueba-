@@ -1,5 +1,5 @@
 body {
-    background-image: url('img/fondo.jpg'); /* Ajustá el nombre del archivo */
+    background-image: url('fondo.jpg'); /* Ajustá el nombre del archivo */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
