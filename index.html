@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Registro Wi-Fi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body>
+
+  <h3>Por favor, completá tus datos para conectarte.</h3>
+
+  <form method="post" action="https://script.google.com/macros/s/AKfycbzB0s1UgyZjj8vsjB3gPrdrPSCtDQ3PpTcqW4Sd3e7sCskrIkop3w8jG0-E5hKuM-E7ow/exec">
+    <div>
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" required />
+    </div>
+
+    <div>
+      <label for="edad">Edad:</label>
+      <input type="number" id="edad" name="edad" required />
+    </div>
+
+    <div>
+      <label for="telefono">Teléfono:</label>
+      <input type="tel" id="telefono" name="telefono" required />
+    </div>
+
+    <div>
+      <label>
+        <input type="checkbox" id="terminosCheckbox" disabled />
+        Acepto los <a href="#" onclick="openModal(); return false;">Términos y Condiciones</a>
+      </label>
+    </div>
+
+    <div>
+      <button type="submit" id="submitBtn" disabled>Conectarme</button>
+    </div>
+  </form>
+
+  <!-- Modal -->
+  <div id="terminosModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5);">
+    <div style="background:#fff; margin: 10% auto; padding:20px; width:90%; max-width:600px; position:relative;">
+      <h2>Términos y Condiciones de Uso del WiFi</h2>
+      <div style="max-height:300px; overflow-y:auto;">
+        <p><strong>Última actualización:</strong> Julio de 2025</p>
+        <p>Por favor, lea atentamente los siguientes Términos y Condiciones antes de utilizar este servicio.</p>
+        <!-- Podés agregar más texto aquí -->
+      </div>
+      <button onclick="aceptarTerminos()">Aceptar</button>
+      <button onclick="closeModal()">Cancelar</button>
+      <button style="position:absolute; top:10px; right:10px;" onclick="closeModal()">X</button>
+    </div>
+  </div>
+
+<script>
+  const checkbox = document.getElementById('terminosCheckbox');
+  const submitBtn = document.getElementById('submitBtn');
+
+  function openModal() {
+    document.getElementById('terminosModal').style.display = 'block';
+  }
+
+  function closeModal() {
+    document.getElementById('terminosModal').style.display = 'none';
+  }
+
+  function aceptarTerminos() {
+    checkbox.checked = true;
+    checkbox.disabled = false;
+    submitBtn.disabled = false;
+    closeModal();
+  }
+
+  checkbox.addEventListener('change', function() {
+    submitBtn.disabled = !this.checked;
+  });
+
+  // Cierra modal si clickeás fuera del contenido
+  window.onclick = function(event) {
+    const modal = document.getElementById('terminosModal');
+    if (event.target === modal) {
+      closeModal();
+    }
+  }
+</script>
+
+</body>
+</html>
