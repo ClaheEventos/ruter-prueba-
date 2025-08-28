@@ -21,7 +21,6 @@
       padding: 40px 10px;
       overflow-y: auto;
     }
-
     .modal-content {
       background-color: white;
       max-width: 700px;
@@ -33,7 +32,6 @@
       max-height: 90vh;
       box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
     }
-
     .modal-header {
       position: sticky;
       top: 0;
@@ -46,12 +44,10 @@
       z-index: 10;
       border-bottom: 1px solid #125aa0;
     }
-
     .modal-header h2 {
       margin: 0;
       font-size: 1.3rem;
     }
-
     .modal-body {
       padding: 20px 24px;
       overflow-y: auto;
@@ -61,24 +57,20 @@
       font-size: 12px;
       font-family: 'Segoe UI', sans-serif;
     }
-
     .modal-body h3 {
       font-size: 13px;
       margin-top: 20px;
       color: #000;
     }
-
     .modal-body p {
       margin-bottom: 10px;
     }
-
     .modal-footer {
       text-align: right;
       padding: 16px 24px;
       border-top: 1px solid #eee;
       background-color: #f9f9f9;
     }
-
     .btn-aceptar {
       background-color: #1a73e8;
       color: white;
@@ -90,12 +82,10 @@
       margin-right: 10px;
       transition: background-color 0.3s, transform 0.2s;
     }
-
     .btn-aceptar:hover {
       background-color: #1669c1;
       transform: scale(1.02);
     }
-
     .btn-cancelar {
       background-color: #ccc;
       color: #e30f0f;
@@ -106,9 +96,17 @@
       cursor: pointer;
       transition: background-color 0.3s;
     }
-
     .btn-cancelar:hover {
       background-color: #bbb;
+    }
+    /* Estilo para mensaje de gracias */
+    #mensajeGracias {
+      display: none;
+      padding: 20px;
+      font-size: 1.2rem;
+      color: green;
+      text-align: center;
+      margin-top: 20px;
     }
   </style>
 </head>
@@ -117,7 +115,7 @@
 
   <h3>Por favor, completá tus datos para conectarte.</h3>
 
-  <form method="post" action="https://script.google.com/macros/s/AKfycbzB0s1UgyZjj8vsjB3gPrdrPSCtDQ3PpTcqW4Sd3e7sCskrIkop3w8jG0-E5hKuM-E7ow/exec">
+  <form id="wifiForm" method="post" action="https://script.google.com/macros/s/AKfycbzUckBKgwKGCbeCkWD5Rut2Pzh4ezaHv4SItJtMMOguU_vXjQLesRjkKqYy9bHL0FjjYQ/exec">
     <div>
       <label for="nombre">Nombre:</label>
       <input type="text" id="nombre" name="nombre" required />
@@ -145,6 +143,41 @@
     </div>
   </form>
 
+  <!-- Mensaje de gracias oculto inicialmente -->
+  <div id="mensajeGracias">
+    Gracias por enviar tus datos.<br/>
+   <h2>recorda seguirnos</h2>
+       <h2>en nuestras redes</h2>
+
+      
+<div style={{ display: "flex", flexDirection: "column", gap: "20px", marginTop: "20px", alignItems: "center" }}>
+  <a
+    href="https://www.instagram.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Instagram"
+  >
+    <img
+      src="/instagram.svg"
+      alt="Instagram"
+      style={{ width: "100px", height: "100px", cursor: "pointer" }}
+    />
+  </a>
+
+  <a
+    href="https://www.tiktok.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="TikTok"
+  >
+    <img
+      src="/tiktok.svg"
+      alt="TikTok"
+      style={{ width: "100px", height: "100px", cursor: "pointer" }}
+    />
+  </a>
+</div>  </div>
+
   <!-- Modal -->
   <div id="terminosModal" class="modal">
     <div class="modal-content">
@@ -153,87 +186,138 @@
       </div>
 
       <div class="modal-body">
- <p><strong>Última actualización:</strong> Julio de 2025</p>
-    <p>Por favor, lea atentamente los siguientes Términos y Condiciones antes de utilizar este sitio web. Al acceder o utilizar nuestro sitio, usted acepta quedar legalmente obligado por estos términos.</p>
+        <p><strong>Última actualización:</strong> Julio de 2025</p>
+        <p>Por favor, lea atentamente los siguientes Términos y Condiciones antes de utilizar este sitio web. Al acceder o utilizar nuestro sitio, usted acepta quedar legalmente obligado por estos términos.</p>
 
-    <h3>1. Identificación del titular</h3>
-    <p>CLAHE EVENTOS SRL es una empresa dedicada a la prestación de servicios para la organización de eventos sociales y familiares, como cumpleaños, casamientos, bautismos, aniversarios, entre otros. Nuestros salones se encuentran ubicados en la zona sur de la Provincia de Buenos Aires.</p>
-    <p><strong>Razón social:</strong> CLAHE EVENTOS<br>
-    <strong>Domicilio legal:</strong> Avenida Mitre N° 6549, Wilde<br>
-    <strong>Correo electrónico de contacto:</strong> Legales@claheeventos.com</p>
+        <h3>1. Identificación del titular</h3>
+        <p>CLAHE EVENTOS SRL es una empresa dedicada a la prestación de servicios para la organización de eventos sociales y familiares, como cumpleaños, casamientos, bautismos, aniversarios, entre otros. Nuestros salones se encuentran ubicados en la zona sur de la Provincia de Buenos Aires.</p>
+        <p><strong>Razón social:</strong> CLAHE EVENTOS<br>
+        <strong>Domicilio legal:</strong> Avenida Mitre N° 6549, Wilde<br>
+        <strong>Correo electrónico de contacto:</strong> Legales@claheeventos.com</p>
 
-    <h3>2. Objeto del sitio web</h3>
-    <p>El presente sitio web tiene como finalidad informar a los usuarios sobre los servicios que ofrece CLAHE EVENTOS, permitir la toma de contacto, enviar consultas, dejar datos de contacto, y brindar información adicional vinculada a la contratación de nuestros salones y servicios asociados.</p>
+        <h3>2. Objeto del sitio web</h3>
+        <p>El presente sitio web tiene como finalidad informar a los usuarios sobre los servicios que ofrece CLAHE EVENTOS, permitir la toma de contacto, enviar consultas, dejar datos de contacto, y brindar información adicional vinculada a la contratación de nuestros salones y servicios asociados.</p>
 
-    <h3>3. Aceptación de los Términos</h3>
-    <p>El uso del sitio por parte del usuario implica la aceptación plena y sin reservas de los presentes Términos y Condiciones. En caso de no estar de acuerdo, le solicitamos que se abstenga de utilizar el sitio.</p>
+        <h3>3. Aceptación de los Términos</h3>
+        <p>El uso del sitio por parte del usuario implica la aceptación plena y sin reservas de los presentes Términos y Condiciones. En caso de no estar de acuerdo, le solicitamos que se abstenga de utilizar el sitio.</p>
 
-    <h3>4. Servicios ofrecidos</h3>
-    <p>CLAHE EVENTOS ofrece la contratación de salones para eventos sociales, con o sin servicios adicionales (catering, decoración, animación, etc.). Las características de cada salón y servicio adicional están detalladas en el sitio y/o se comunican al momento de la contratación.</p>
+        <h3>4. Servicios ofrecidos</h3>
+        <p>CLAHE EVENTOS ofrece la contratación de salones para eventos sociales, con o sin servicios adicionales (catering, decoración, animación, etc.). Las características de cada salón y servicio adicional están detalladas en el sitio y/o se comunican al momento de la contratación.</p>
 
-    <h3>5. Reservas y contrataciones</h3>
-    <p>Las reservas de fechas se encuentran sujetas a disponibilidad y deben ser confirmadas por parte del equipo de CLAHE EVENTOS. Para garantizar una fecha, podrá exigirse el pago de una seña o anticipo, cuyas condiciones serán informadas oportunamente. El saldo deberá abonarse según los plazos acordados al momento de la contratación. CLAHE EVENTOS se reserva el derecho de cancelar reservas no confirmadas o no abonadas en tiempo y forma.</p>
+        <h3>5. Reservas y contrataciones</h3>
+        <p>Las reservas de fechas se encuentran sujetas a disponibilidad y deben ser confirmadas por parte del equipo de CLAHE EVENTOS. Para garantizar una fecha, podrá exigirse el pago de una seña o anticipo, cuyas condiciones serán informadas oportunamente. El saldo deberá abonarse según los plazos acordados al momento de la contratación. CLAHE EVENTOS se reserva el derecho de cancelar reservas no confirmadas o no abonadas en tiempo y forma.</p>
 
-    <h3>6. Cancelaciones y devoluciones</h3>
-    <p>Las políticas de cancelación serán informadas al momento de la reserva y podrán variar según el tipo de evento y los servicios contratados.</p>
+        <h3>6. Cancelaciones y devoluciones</h3>
+        <p>Las políticas de cancelación serán informadas al momento de la reserva y podrán variar según el tipo de evento y los servicios contratados.</p>
 
-    <h3>7. Uso del sitio web</h3>
-    <p>El usuario se compromete a utilizar el sitio de manera lícita y responsable. Queda prohibido: realizar reservas falsas o fraudulentas, proporcionar información falsa o incompleta, interferir con el funcionamiento del sitio o intentar acceder a áreas restringidas.</p>
+        <h3>7. Uso del sitio web</h3>
+        <p>El usuario se compromete a utilizar el sitio de manera lícita y responsable. Queda prohibido: realizar reservas falsas o fraudulentas, proporcionar información falsa o incompleta, interferir con el funcionamiento del sitio o intentar acceder a áreas restringidas.</p>
 
-    <h3>8. Propiedad intelectual</h3>
-    <p>Todo el contenido del sitio (textos, imágenes, logos, diseños, videos, software, etc.) es propiedad de CLAHE EVENTOS SRL o cuenta con licencia para su uso. Queda prohibida su reproducción total o parcial sin autorización expresa.</p>
+        <h3>8. Propiedad intelectual</h3>
+        <p>Todo el contenido del sitio (textos, imágenes, logos, diseños, videos, software, etc.) es propiedad de CLAHE EVENTOS SRL o cuenta con licencia para su uso. Queda prohibida su reproducción total o parcial sin autorización expresa.</p>
 
-    <h3>9. Limitación de responsabilidad</h3>
-    <p>CLAHE EVENTOS no garantiza la disponibilidad continua del sitio ni se responsabiliza por posibles interrupciones, errores o daños derivados del uso del mismo. Tampoco será responsable por decisiones tomadas por el usuario basadas en la información publicada.</p>
+        <h3>9. Limitación de responsabilidad</h3>
+        <p>CLAHE EVENTOS no garantiza la disponibilidad continua del sitio ni se responsabiliza por posibles interrupciones, errores o daños derivados del uso del mismo. Tampoco será responsable por decisiones tomadas por el usuario basadas en la información publicada.</p>
 
-    <h3>10. Modificaciones</h3>
-    <p>Nos reservamos el derecho de modificar los presentes Términos y Condiciones en cualquier momento. Las modificaciones entrarán en vigencia desde su publicación en el sitio. Se recomienda revisar periódicamente esta sección.</p>
+        <h3>10. Modificaciones</h3>
+        <p>Nos reservamos el derecho de modificar los presentes Términos y Condiciones en cualquier momento. Las modificaciones entrarán en vigencia desde su publicación en el sitio. Se recomienda revisar periódicamente esta sección.</p>
 
-    <h3>11. Protección de datos personales</h3>
-    <p>CLAHE EVENTOS se compromete a proteger los datos personales que los usuarios proporcionen, de acuerdo con la Ley 25.326 de Protección de Datos Personales.</p>
+        <h3>11. Protección de datos personales</h3>
+        <p>CLAHE EVENTOS se compromete a proteger los datos personales que los usuarios proporcionen, de acuerdo con la Ley 25.326 de Protección de Datos Personales.</p>
 
-    <h3>12. Legislación aplicable y jurisdicción</h3>
-    <p>Los presentes Términos y Condiciones se rigen por las leyes de la República Argentina. Para cualquier controversia derivada del uso del sitio o los servicios ofrecidos, las partes se someten a la jurisdicción de los tribunales ordinarios con asiento en el Departamento Judicial de la Provincia de Buenos Aires.</p>
-</div>
-     
+        <h3>12. Legislación aplicable y jurisdicción</h3>
+        <p>Los presentes Términos y Condiciones se rigen por las leyes de la República Argentina. Para cualquier controversia derivada del uso del sitio o los servicios ofrecidos, las partes se someten a la jurisdicción de los tribunales ordinarios con asiento en el Departamento Judicial de la Provincia de Buenos Aires.</p>
+      </div>
 
       <div class="modal-footer">
-        <button class="btn-aceptar" onclick="closeModal()">Aceptar</button>
+        <button class="btn-aceptar" onclick="aceptarTerminos()">Aceptar</button>
         <button class="btn-cancelar" onclick="closeModal()">Cancelar</button>
       </div>
     </div>
   </div>
 
-  <script>
-    const checkbox = document.getElementById('terminosCheckbox');
-    const submitBtn = document.getElementById('submitBtn');
+<script>
+  const checkbox = document.getElementById('terminosCheckbox');
+  const submitBtn = document.getElementById('submitBtn');
+  const form = document.getElementById('wifiForm');
 
-    // Habilitar o deshabilitar botón según checkbox
-    checkbox.addEventListener('change', function () {
-      submitBtn.disabled = !this.checked;
-    });
+  checkbox.addEventListener('change', function () {
+    submitBtn.disabled = !this.checked;
+  });
 
-    function openModal() {
-      document.getElementById('terminosModal').style.display = 'block';
-    }
+  function openModal() {
+    document.getElementById('terminosModal').style.display = 'block';
+  }
 
-    function closeModal() {
-      document.getElementById('terminosModal').style.display = 'none';
-    }
+  function closeModal() {
+    document.getElementById('terminosModal').style.display = 'none';
+  }
 
-    function aceptarTerminos() {
-      checkbox.checked = true;
-      submitBtn.disabled = false;
+  function aceptarTerminos() {
+    checkbox.checked = true;
+    submitBtn.disabled = false;
+    closeModal();
+  }
+
+  window.onclick = function(event) {
+    const modal = document.getElementById('terminosModal');
+    if (event.target === modal) {
       closeModal();
     }
+  }
 
-    // Cierra modal si clickeás fuera del contenido
-    window.onclick = function(event) {
-      const modal = document.getElementById('terminosModal');
-      if (event.target === modal) {
-        closeModal();
-      }
-    }
-  </script>
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // Mostrar mensaje y ocultar formulario inmediatamente
+ form.style.display = 'none';
+const msg = document.getElementById('mensajeGracias');
+msg.style.display = 'block';
+msg.innerHTML = `
+
+<div style="background-color: white; padding: 20px; border-radius: 10px; display: inline-block;">
+  <a
+    href="https://www.instagram.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Instagram"
+    style="display:inline-block; margin-right: 10px; cursor:pointer;"
+  >
+    <img
+      src="instagram.svg"
+      alt="Instagram"
+      style="width:100px; height:100px;"
+    />
+  </a>
+
+  <a
+    href="https://www.tiktok.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="TikTok"
+    style="display:inline-block; cursor:pointer;"
+  >
+    <img
+      src="tiktok.svg"
+      alt="TikTok"
+      style="width:100px; height:100px;"
+    />
+  </a>
+</div>
+`;
+
+    const formData = new FormData(form);
+
+    // Enviar datos en segundo plano, sin esperar resultado para UX
+    fetch(form.action, {
+      method: 'POST',
+      body: formData
+    }).catch(err => {
+      console.error('Error al enviar datos:', err);
+      // Si quieres, podrías mostrar un mensaje de error aquí, pero no cambia nada para el usuario
+    });
+  });
+</script>
+
 </body>
 </html>
