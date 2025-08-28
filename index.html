@@ -130,6 +130,11 @@
       <label for="telefono">Teléfono:</label>
       <input type="tel" id="telefono" name="telefono" required />
     </div>
+ <!-- Campos ocultos -->
+  <input name="token" type="hidden" id="token">
+  <input name="clientMac" type="hidden" id="clientMac">
+  <input name="apMac" type="hidden" id="apMac">
+  <input name="ssid" type="hidden" id="ssid">
 
     <div>
       <label>
@@ -237,6 +242,11 @@
   </div>
 
 <script>
+  const params = new URLSearchParams(location.search);
+  document.getElementById('token').value     = params.get('t')       || params.get('token') || '';
+  document.getElementById('clientMac').value = params.get('clientMac') || params.get('cid')   || '';
+  document.getElementById('apMac').value     = params.get('apMac')   || params.get('ap')    || '';
+  document.getElementById('ssid').value      = params.get('ssid')    || params.get('ssidName') || '';
   const checkbox = document.getElementById('terminosCheckbox');
   const submitBtn = document.getElementById('submitBtn');
   const form = document.getElementById('wifiForm');
